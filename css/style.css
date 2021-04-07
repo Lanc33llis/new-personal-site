@@ -63,6 +63,14 @@ p, h1, h2, a {
     font-family: Epilogue, Arial, Helvetica, sans-serif;
 }
 
+.content > footer {
+    cursor: default;
+}
+
+footer > p {
+    margin: 0;
+}
+
 h1, h2 {
     font-variation-settings: 'wght' 300;
     font-weight: 300;
@@ -73,7 +81,7 @@ h1 {
     margin: 25px 10px;
 }
 
-div.content > h1.home-header-detail {
+div.content > h1.home-header-detail, footer {
     cursor: pointer;
     transition: .5s;
     margin: 0;
