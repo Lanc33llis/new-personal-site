@@ -4,7 +4,7 @@
 }
 :root {
     --content-bg-color: rgb(40, 40, 40);
-    --h1-hover-color: rgb(60, 40, 255);
+    --h1-hover-color: blue;
 }
 
 body, html {
@@ -28,6 +28,7 @@ body, html {
 div.index-container {
     width: 50%;
     height: 100%;
+    float: left;
 }
 
 .stars {
@@ -42,8 +43,11 @@ div.index-container {
 
 .content {
     flex-grow: 1;
+    /* background-color: var(--content-bg-color); */
+    /* border-top-right-radius: 5px; */
+}
+.content > * {
     background-color: var(--content-bg-color);
-    border-top-right-radius: 5px;
 }
 
 nav {
@@ -54,7 +58,7 @@ nav {
     min-height: 70px;
 }
 
-h1, h2, a {
+p, h1, h2, a {
     color: white;
     font-family: Epilogue, Arial, Helvetica, sans-serif;
 }
@@ -66,36 +70,50 @@ h1, h2 {
 
 h1 {
     font-size: 100px;
-    margin: 50px 10px;
+    margin: 25px 10px;
 }
 
 div.content > h1.home-header-detail {
-    width: fit-content;
     cursor: pointer;
-}
-
-div.content > h1.home-header-detail:hover {
-    color: var(--h1-hover-color)
+    transition: .5s;
+    margin: 0;
+    padding: 30px 60px;
 }
 
 h1.home-header-detail {
-    /* text-decoration: underline; */
-    border-bottom: 1px solid white;
+    text-decoration: underline;
+    /* border-bottom: 1px solid white; */
 }
 
 .right-detail {
-    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.right-detail > img {
-    height: 50%;
+.right-detail > div {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.right-detail > * > img {
+    width: 80%;
+    height: 400px;
+}
+
+.right-detail > div > p {
+    text-align: center;
+    width: 80%;
+    font-size: 16px
 }
 
 .hidden {
     position: absolute;
     display: none;
+}
+
+.selected {
+    background-color: transparent;
 }
 
 main {

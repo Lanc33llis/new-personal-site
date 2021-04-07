@@ -7,24 +7,37 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 	<body>
-		<main class="flex home">
+		<main class="home">
 			<div class="index-container flex-down">
-				<nav>
-					<a>home</a>
-					<a>work</a>
-					<a>contact</a>
-				</nav>
-				<div class="content">
-					<h1>Hello, I'm Lance</h1>
-					<h1 onmouseover="showStudent()" class="home-header-detail">Student</h1>
-					<h1 onmouseover="showProgrammer()" class="home-header-detail">Programmer</h1>
-					<h1 onmouseover="showGraphicDesign()" class="home-header-detail">Graphic Designer</h1>
-					<h1 onmouseover="showResearch()" class="home-header-detail">Researcher</h1>
+				<div class="content flex-down">
+					<nav>
+						<a>
+							contact
+						</a>
+					</nav>
+					<h1 style="margin: 0; padding: 30px 60px;">Hi, I'm Lance</h1>
+					<h1 onmouseover="showData(0)" class="home-header-detail">Student</h1>
+					<h1 onmouseover="showData(1)" class="home-header-detail">Programmer</h1>
+					<h1 onmouseover="showData(2)" class="home-header-detail">Graphic designer</h1>
+					<h1 onmouseover="showData(3)" class="home-header-detail">Researcher</h1>
+					<footer style="flex-grow: 1"></footer>
 				</div>
 			</div>
-			<div class="index-container right-detail">
-				<img class="hidden student" src="images/university-of-texas-austin.jpg"></img>
-				<img class="hidden programmer" src="images/ISO_C++_Logo.svg"></img>
+			<div class="index-container right-detail flex">
+				<div class="hidden student flex-down" >
+					<p>Howdy! I'm currently studying Astronomy at the University of Texas @ Austin. I do debate, robotics and competitive programming</p>
+					<img src="images/university-of-texas-austin.png"></img>
+				</div>
+				<div class="hidden programmer flex-down">
+					<p>I do programming as a passion. I do C++, full-stack web development, and numerous other minor skills. I primarily work with C++ developing desktop applications for my own usage, but I do web apps as well.</p>
+					<img src="images/cogle.png"></img>
+				</div>
+				<div class="hidden gd flex-down">
+
+				</div>
+				<div class="hidden researcher flex-down">
+
+				</div>
 			</div>
 			</main>
 		</div>

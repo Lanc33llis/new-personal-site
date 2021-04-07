@@ -1,65 +1,42 @@
-var showingStudent = false, showingProgrammer = false, showingGD = false, showingResearch = false
+var showingBools = [false, false, false, false]
+var headers = document.querySelectorAll("h1.home-header-detail")
+var data = document.querySelectorAll(".hidden")
 
-var studentData = document.querySelectorAll(".student")
-var programmerData = document.querySelectorAll(".programmer")
-var gdData = document.querySelectorAll(".gd")
-var researcherData = document.querySelectorAll(".researcher")
-
-function showStudent() {
-    studentData.forEach(e => {
-        if (!showingStudent) {
-            e.classList.remove("hidden")
-            showingStudent = true
+function showData(i) {
+    data.forEach((e, k) => {
+        if (k == i) {
+            if (!showingBools[i]) {
+                e.classList.remove("hidden")
+                headers[i].classList.add("selected")
+                showingBools[i] = true
+            } else {
+                e.classList.add("hidden")
+                headers[i].classList.remove("selected")
+                showingBools[i] = false
+            }
         } else {
             e.classList.add("hidden")
-            showingStudent = false
+            headers[k].classList.remove("selected")
+            showingBools[k] = false
         }
-    })
-    programmerData.forEach(e => {
-        e.classList.add("hidden")
-        showingProgrammer = false
-    })
-    gdData.forEach(e => {
-        e.classList.add("hidden")
-        showingGD = false
-    })
-    researcherData.forEach(e => {
-        e.classList.add("hidden")
-        showingResearch = false
     })
 }
 
-function showProgrammer() {
+var i = 0
+setInterval(x => {
+    let programmerPhotos = ["images/cogle.png", "images/autopilot.png", "images/opencv.gif"]
+    let programmerData = document.querySelectorAll(".programmer > img")
     programmerData.forEach(e => {
-        if (!showingProgrammer) {
-            e.classList.remove("hidden")
-            showingProgrammer = true
+        if (showingBools[1]) {
+            if (i == programmerPhotos.length) i = 0
+            e.src = programmerPhotos[i]
+            i++
         } else {
-            e.classList.add("hidden")
-            showingProgrammer = false
+            i = 0
         }
     })
-    studentData.forEach(e => {
-        e.classList.add("hidden")
-        showingStudent = false
-    })
-    gdData.forEach(e => {
-        e.classList.add("hidden")
-        showingGD = false
-    })
-    researcherData.forEach(e => {
-        e.classList.add("hidden")
-        showingResearch = false
-    })
-}
+}, 2000)
 
-function showGraphicDesign() {
-
-}
-
-function showResearch() {
-
-}
 //-------------------- sim stuff --------------------//
 var Engine = Matter.Engine, 
     Render = Matter.Render,
