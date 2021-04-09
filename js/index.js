@@ -22,22 +22,28 @@ function showData(i) {
     })
 }
 
-var i = 0
+var i = 0, h = 0
+var programmerPhotos = ["images/cogle.gif", "images/equipotential3d.png", "images/equipotentialflat.png", "images/opencv.gif"]
+var gdPhotos = ["images/LE Logo.svg", "images/s2swebsite.jpg", "images/oldpersonalwebsite.png", "images/frenchfriedlogo.svg"]
+var programmerData = document.querySelector(".programmer > img")
+var gdData = document.querySelector(".gd > img")
 setInterval(x => {
-    let programmerPhotos = ["images/cogle.png", "images/autopilot.png", "images/opencv.gif"]
-    let programmerData = document.querySelectorAll(".programmer > img")
-    programmerData.forEach(e => {
-        if (showingBools[1]) {
-            if (i == programmerPhotos.length) i = 0
-            e.src = programmerPhotos[i]
-            i++
-        } else {
-            i = 0
-        }
-    })
+    i++
+    h++
+    
+    if(i == programmerPhotos.length) {
+        i = 0
+    }
+    if(h == gdPhotos.length) {
+        h = 0
+    }
+
+    programmerData.src = programmerPhotos[i]
+    gdData.src = gdPhotos[h]
 }, 2000)
 
 //-------------------- sim stuff --------------------//
+
 var Engine = Matter.Engine, 
     Render = Matter.Render,
     World = Matter.World,
@@ -110,15 +116,15 @@ function setup() {
         let c = Bodies.circle(randomNum(0, (windowWidth * 3/4) * 2), randomNum(dy, dy1), randomNum(2, 6), defaultOptions)
         //small eccentric estimation of the orbital speed
         // v = sqrt(GM/r)
+
         let vec = Vector.sub(center.position, c.position)
         let r = Vector.magnitude(vec)
         let vel = Vector.mult(Vector.normalise(Vector.perp(Vector.sub(center.position, c.position))), Math.sqrt(G * sunMass / r))
-        // let vel = Vector.mult(Vector.normalise(Vector.perp(Vector.sub(center.position, c.position))), 0)
+
         Body.setVelocity(c, vel)
 
         stars.push(c)
     }
-    // let c1 = Bodies.circle(1600, 400, 5, defaultOptions)
 
     World.add(world, stars)
 }
@@ -132,8 +138,6 @@ function draw() {
     background(0)
 
     stars.forEach((c, i) => {
-        //can probably use p5 sprite alongside animation for trial
-        //p5 graphics to rotate?
         if (i !=  0) {
             push()
             let center = stars[0]

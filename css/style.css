@@ -1,3 +1,5 @@
+
+
 @font-face {
     font-family: Epilogue;
     src: url("../fonts/Epilogue-VariableFont_wght.ttf") format("truetype");
@@ -10,9 +12,11 @@
 body, html {
     height: 100%;
     margin: 0;
+    overflow: hidden;
 }
 
-.home {
+main {
+    position: relative;
     overflow: hidden;
 }
 
@@ -31,20 +35,8 @@ div.index-container {
     float: left;
 }
 
-.stars {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    /* background-color: black; */
-    z-index: -1;
-}
-
 .content {
     flex-grow: 1;
-    /* background-color: var(--content-bg-color); */
-    /* border-top-right-radius: 5px; */
 }
 .content > * {
     background-color: var(--content-bg-color);
@@ -63,8 +55,11 @@ p, h1, h2, a {
     font-family: Epilogue, Arial, Helvetica, sans-serif;
 }
 
-.content > footer {
+footer  {
     cursor: default;
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
 }
 
 footer > p {
@@ -81,7 +76,7 @@ h1 {
     margin: 25px 10px;
 }
 
-div.content > h1.home-header-detail, footer {
+div.content > h1.home-header-detail {
     cursor: pointer;
     transition: .5s;
     margin: 0;
@@ -90,7 +85,6 @@ div.content > h1.home-header-detail, footer {
 
 h1.home-header-detail {
     text-decoration: underline;
-    /* border-bottom: 1px solid white; */
 }
 
 .right-detail {
@@ -112,12 +106,16 @@ h1.home-header-detail {
 .right-detail > div > p {
     text-align: center;
     width: 80%;
-    font-size: 16px
+    font-size: 20px
 }
 
 .hidden {
     position: absolute;
     display: none;
+}
+
+.gd > img {
+    width: 80%;
 }
 
 .selected {
@@ -127,4 +125,14 @@ h1.home-header-detail {
 main {
     width: 100%;
     height: 100%;
+}
+
+@media (max-width: 1350px), (max-height: 950px) {
+    h1 {
+        font-size: 5vmax;
+    }
+}
+
+@media (max-width: 1300px) {
+    /* work on making it mobile friendly */
 }
