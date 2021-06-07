@@ -6,8 +6,8 @@
 :root {
     --drop-shadow-color: rgb(210, 0, 255);
     --border-radius: 4px;
-    --drop-shadow-x: -6px;
-    --drop-shadow-y: 6px;
+    --drop-shadow-x: -8px;
+    --drop-shadow-y: 8px;
 }
 
 .flex {
@@ -21,6 +21,10 @@
 
 .flex.down {
     flex-direction: column;
+}
+
+html {
+    /* scroll-behavior: smooth; */
 }
 
 body, html {
@@ -49,7 +53,7 @@ p {
 header {
     background-color: white;
     z-index: 1;
-    padding-top: 20px;
+    padding: 10px 0;
     height: 80px;
     width: 100%;
     position: sticky;
