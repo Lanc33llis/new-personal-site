@@ -1,129 +1,97 @@
 @font-face {
-    font-family: Italiana;
-    src: url("../fonts/Italiana-Regular.ttf") format("truetype");
-    font-weight: normal;
-}
-
-@font-face {
-    font-family: Hanuman;
-    src: url("../fonts/Hanuman-Regular.ttf") format("truetype");
-    font-weight: normal;
+    font-family: "Inter";
+    src: url("../fonts/Inter-VariableFont.ttf") format("truetype");
 }
 
 :root {
-    --index-left-color: rgb(255, 227, 190);
-    --nav-link-color: rgb(0, 55, 175);
+    --drop-shadow-color: rgb(210, 0, 255);
+    --border-radius: 4px;
+    --drop-shadow-x: -6px;
+    --drop-shadow-y: 6px;
 }
 
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-}
-
-nav {
+.flex {
     display: flex;
-    position: absolute;
-    width: 50%;
-    height: 80px;
-    top: 0;
-    left: 0;
+}
+
+.flex.center {
     justify-content: center;
     align-items: center;
-    z-index: 1;
-    font-size: 30px
 }
 
-nav > a {
-    margin: 0 10px;
-}
-
-a {
-    font-weight: 500;
-    font-style: normal;
-    text-decoration: none;
-    color: black;
-}
-
-nav > a:hover {
-    color: var(--nav-link-color);
-}
-
-main.index {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    overflow: hidden;
-}
-
-div.index-container {
-    width: 50%;
-    height: 100%;
-    display: flex;
+.flex.down {
     flex-direction: column;
 }
 
-.index-container > h1 {
-    font-size: 12vw;
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow-x: hidden;
 }
 
-.index-container > h2 {
-    font-size: 10vw;
+main {
+    align-items: center;
 }
 
-.js-marquee > h1 {
-    font-size: 8vw;
+p, a, h1, h2, h3 {
+    font-family: Inter, Arial, Helvetica, sans-serif;
+    transition: .15s box-shadow ease-out;
 }
 
-.js-marquee > h2 {
-    font-size: 6vw;
+a {
+    cursor: pointer;
 }
 
-h1, a {
-    font-family: Italiana, 'Times New Roman', Times, serif;
+p {
+    font-size: 20px;
 }
 
-.left {
-    background-color: var(--index-left-color);
-    justify-content: center;
+header {
+    background-color: white;
+    z-index: 1;
+    padding-top: 20px;
+    height: 80px;
+    width: 100%;
+    position: sticky;
+    margin-top: 0px;
+    left: 0;
+    top: 0;
 }
 
-.left > h1, .left > h2 {
-    margin: 30px 60px;
+header > a {
+    font-size: 30px;
+    margin: 0px 60px;
+    font-variation-settings: 'wght' 1000;
+    transition: .2s ease-out;
+    border-radius: var(--border-radius);
 }
 
-.js-marquee > h1, .js-marquee > h2 {
-    margin: 30px 20px;
-    transition: transform 25ms;
-}
-
-h2 {
-    font-family: Hanuman, Arial, Helvetica, sans-serif
-}
-
-footer > div {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    background-color: black;
-    color: white;
-}
-
-footer > div > h1 {
-    font-family: Hanuman, Arial, Helvetica, sans-serif;
-    margin: 10px 5px 0px;
+h1 {
+    font-variation-settings: 'wght' 800;
+    font-style: italic;
     text-align: center;
 }
 
-@media (max-width: 800px) {
-    nav {
-        background-color: white;
-        width: 100%;
-        border-bottom: 1px solid black;
-    }
+header > a:hover {
+    box-shadow: var(--drop-shadow-x) var(--drop-shadow-y) 0 0 var(--drop-shadow-color);
+    transform: translate(var(--drop-shadow-y), var(--drop-shadow-x));
+    border: 1px solid black;
+}
 
-    .left > h1, .left > h2 {
-        text-align: center; 
-    }
+#front-anim {
+    width: 60%;
+}
+
+div.splash {
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 90vh;
+    width: 100vw;
+}
+
+div.front {
+    margin: 25px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
 }

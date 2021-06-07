@@ -1,7 +1,9 @@
-$('.marquee').marquee({
-	// duration: 25000,
-	speed: 100, 
-	gap: 50,
-	direction: "up",
-	duplicated: true
+const anim = document.getElementById("front-anim")
+
+lottie.loadAnimation({
+    container: anim, // the dom element that will contain the animation
+    renderer: 'svg',
+    loop: true,
+    autoplay: true,
+    path: '../images/data.json' // the path to the animation json
 });
