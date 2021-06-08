@@ -13,7 +13,7 @@ var Scrollbar = window.Scrollbar;
 Scrollbar.init(document.querySelector('body'));
 
 const menuIcon = document.getElementById("menu-icon")
-const side = document.querySelector('body')
+const side = document.getElementById('side')
 var menuEnabled = false
 menuIcon.addEventListener('click', ev => {
     if (menuEnabled) {
