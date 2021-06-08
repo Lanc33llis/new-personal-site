@@ -4,7 +4,7 @@
 }
 
 :root {
-    --drop-shadow-color: rgb(210, 0, 255);
+    --drop-shadow-color: rgb(245, 0, 255);
     --border-radius: 4px;
     --drop-shadow-x: -8px;
     --drop-shadow-y: 8px;
@@ -98,4 +98,24 @@ div.front {
     margin: 25px;
     border-top: 1px solid gray;
     border-bottom: 1px solid gray;
+}
+
+#menu-icon {
+    width: 35px;
+    visibility: hidden;
+    position: fixed;
+    top: 33px;
+    left: 15px;
+    z-index: 2;
+    cursor: pointer
+}
+
+@media (max-width: 900px) {
+    header > a {
+        margin: 0 15px;
+        visibility: hidden;
+    }
+    #menu-icon {
+        visibility: visible;
+    }
 }
