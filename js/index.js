@@ -7,3 +7,21 @@ lottie.loadAnimation({
     autoplay: true,
     path: '../images/data.json' // the path to the animation json
 });
+
+var Scrollbar = window.Scrollbar;
+//might need to change this to main because mobiles may ignore body tags
+Scrollbar.init(document.querySelector('body'));
+
+const menuIcon = document.getElementById("menu-icon")
+const side = document.querySelector('body')
+var menuEnabled = false
+menuIcon.addEventListener('click', ev => {
+    if (menuEnabled) {
+        side.style.marginLeft = "0"
+        menuEnabled = false
+    }
+    else {
+        side.style.marginLeft = "100%"
+        menuEnabled = true
+    }
+})
