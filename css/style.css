@@ -23,14 +23,18 @@
     flex-direction: column;
 }
 
+.grow {
+    flex-grow: 1;
+}
+
 html {
     /* scroll-behavior: smooth; */
+    overflow-x: hidden;
 }
 
 body, html {
     height: 100%;
     margin: 0;
-    overflow-x: hidden;
 }
 
 main {
@@ -66,8 +70,12 @@ header > a {
     font-size: 30px;
     margin: 0px 60px;
     font-variation-settings: 'wght' 1000;
-    transition: .2s ease-out;
+
     border-radius: var(--border-radius);
+}
+
+header > a, #side > a {
+    transition: .2s box-shadow ease-out, .2s transform ease-out, .2s border ease-out;
 }
 
 h1 {
@@ -76,22 +84,23 @@ h1 {
     text-align: center;
 }
 
-header > a:hover {
+header > a:hover, #side > a:hover {
     box-shadow: var(--drop-shadow-x) var(--drop-shadow-y) 0 0 var(--drop-shadow-color);
     transform: translate(var(--drop-shadow-y), var(--drop-shadow-x));
     border: 1px solid black;
 }
 
 #front-anim {
-    width: 60%;
+    width: 70%;
 }
 
 div.splash {
-    position: relative;
+    /* position: relative;
     top: 0;
-    left: 0;
-    height: 90vh;
+    left: 0; */
+    /* height: 90vh; */
     width: 100vw;
+    margin-bottom: 100px;
 }
 
 div.front {
@@ -101,21 +110,99 @@ div.front {
 }
 
 #menu-icon {
+    margin: 0 60px;
+    position: absolute;
     width: 35px;
     visibility: hidden;
-    position: fixed;
-    top: 33px;
-    left: 15px;
+    top: 0px;
+    left: 0px;
     z-index: 2;
     cursor: pointer
 }
 
+#side {
+    transition: .3s left ease-out;
+    position: absolute;
+    top: 100px;
+    left: -100%;
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+    visibility: hidden;
+}
+
+#side > a {
+    font-size: 30px;
+    margin: 7vh 25px;
+    font-variation-settings: 'wght' 400;
+}
+
+#front-breaker {
+    position: absolute;
+    top: -200px;
+    height: 5%;
+}
+
+.header-mobile-icons {
+    position: absolute;
+    visibility: hidden;
+    margin: 0 25px;
+    height: 50%;
+    border: none !important;
+}
+
+.header-mobile-icons > img {
+    height: 100%;
+}
+
+#header-mobile-grow {
+    position: absolute;
+    height: 100%;
+}
+
+footer {
+    background-color: rgb(30, 30, 30);
+    width: 100%;
+    height: auto;
+    color: white;
+}
+
+footer > p {
+    margin: 25px;
+}
+
 @media (max-width: 900px) {
-    header > a {
-        margin: 0 15px;
+    #front-anim {
+        margin: 0px 25px;
+        width: auto;
+    }
+    header {
+        justify-content: flex-start !important;
+    }
+    header > a:not(a.header-mobile-icons) {
+        margin: 0 30px;
+        position: absolute;
         visibility: hidden;
     }
     #menu-icon {
+        margin: 0 25px;
+        position: relative;
         visibility: visible;
+    }
+    #side {
+        visibility: unset;
+    }
+    .header-mobile-icons {
+        position: unset;
+        visibility: visible;
+    }
+    #header-mobile-grow {
+        position: unset;
+    }
+}
+
+@media (min-width: 2200px) {
+    #front-anim {
+        width: 1540px;
     }
 }
