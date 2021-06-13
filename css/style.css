@@ -60,7 +60,7 @@ header {
     padding: 10px 0;
     height: 80px;
     width: 100%;
-    position: sticky;
+    position: fixed;
     margin-top: 0px;
     left: 0;
     top: 0;
@@ -72,6 +72,10 @@ header > a {
     font-variation-settings: 'wght' 1000;
 
     border-radius: var(--border-radius);
+}
+
+main > div:first-of-type {
+    margin-top: 100px;
 }
 
 header > a, #side > a {
@@ -116,7 +120,7 @@ div.front {
     visibility: hidden;
     top: 0px;
     left: 0px;
-    z-index: 2;
+    z-index: 4;
     cursor: pointer
 }
 

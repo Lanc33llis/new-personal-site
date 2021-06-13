@@ -28,33 +28,40 @@ class ModalPlugin extends Scrollbar.ScrollbarPlugin {
 
 Scrollbar.use(ModalPlugin)
 
-if (!isMobile) {
-	var Scrollbar = window.Scrollbar;
-	const fixed = document.querySelector("header");
-	//might need to change this to main because mobiles may ignore body tags
-	var scrollbar = Scrollbar.init(document.querySelector("body"), {
-		syncCallbacks: true,
-	});
-	
-	scrollbar.addListener(function (status) {
-		var offset = status.offset;
-	
-		fixed.style.top = offset.y + "px";
-		fixed.style.left = offset.x + "px";
-	});
+var Scrollbar = window.Scrollbar;
+
+const fixed = document.querySelector("header");
+const options = {
+	syncCallbacks: true
 }
+
+if (isMobile) {
+	options.damping = .4
+}
+
+var scrollbar = Scrollbar.init(document.querySelector("body"), options);
+
+scrollbar.addListener(function (status) {
+	var offset = status.offset;
+
+	fixed.style.top = offset.y + "px";
+	fixed.style.left = offset.x + "px";
+});
 
 const menuIcon = document.getElementById("menu-icon");
 const side = document.getElementById("side");
 var menuEnabled = false;
 menuIcon.addEventListener("click", (ev) => {
+
   if (menuEnabled) {
     side.style.left = "-100%";
+
 		scrollbar.updatePluginOptions('modal', {open: false})
     menuEnabled = false;
   } else {
-		side.style.left = "0";
+		side.style.left = "0%";
 		scrollbar.updatePluginOptions('modal', {open: true})
+
     menuEnabled = true;
   }
 });
@@ -63,11 +70,12 @@ menuIcon.addEventListener("click", (ev) => {
 
 function getCoords(elem) {
   let box = elem.getBoundingClientRect();
-	scrollLeft = scrollbar.scrollTop || window.pageXOffset || document.documentElement.scrollLeft
-	scrollTop = scrollbar.scrollLeft || window.pageYOffset || document.documentElement.scrollTop;
+	let el = document.scrollingElement || document.documentElement
+  scrollLeft = el.scrollLeft
+  scrollTop = el.scrollTop
   return {
-    top: box.top + scrollLeft,
-    left: box.left + scrollTop,
+		top: box.top + scrollLeft,
+		left: box.left + scrollTop,
 		height: box.height
   };
 }
@@ -98,6 +106,7 @@ window.onresize = () => {
 	if (window.innerWidth > 900) {
     side.style.left = "-100%";
 		scrollbar.updatePluginOptions('modal', {open: false})
+
 		menuEnabled = false;
 	}
 }
