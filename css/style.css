@@ -127,10 +127,18 @@ header h1 {
     font-style: normal;
     font-size: 36px;
     font-variation-settings: 'wght' 500;
+}
+
+header h1, header h2 {
     transition: .2s text-shadow ease-out, .2s transform ease-out;
 }
 
-header h1:hover {
+header h2 {
+    margin: 0 45px;
+    font-variation-settings: 'wght' 300;
+}
+
+header h1:hover, header h2:hover {
     text-shadow: var(--drop-shadow-color) -6px 6px;
     transform: translate(3px, -3px);
 }
@@ -145,7 +153,7 @@ header a {
     width: 35px;
     visibility: hidden;
     top: 0px;
-    left: 0px;
+    right: 0px;
     z-index: 4;
     cursor: pointer
 }
@@ -215,6 +223,16 @@ footer > p {
     header {
         justify-content: flex-start !important;
     }
+
+    header h1 {
+        margin: 0 30px;
+    }
+
+    header h2 {
+        position: absolute;
+        visibility: hidden;
+    }
+
     header > a:not(a.header-mobile-icons) {
         margin: 0 30px;
         position: absolute;
