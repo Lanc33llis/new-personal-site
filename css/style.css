@@ -122,6 +122,23 @@ div.front {
     border-bottom: 1px solid gray;
 }
 
+header h1 {
+    margin: 0 60px;
+    font-style: normal;
+    font-size: 36px;
+    font-variation-settings: 'wght' 500;
+    transition: .2s text-shadow ease-out, .2s transform ease-out;
+}
+
+header h1:hover {
+    text-shadow: var(--drop-shadow-color) -6px 6px;
+    transform: translate(3px, -3px);
+}
+
+header a {
+    text-decoration: none;
+}
+
 #menu-icon {
     margin: 0 60px;
     position: absolute;
