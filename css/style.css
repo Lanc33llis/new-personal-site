@@ -47,7 +47,9 @@ p, a, h1, h2, h3 {
 }
 
 a {
+    color: black;
     cursor: pointer;
+    transition: .2s color ease-out;
 }
 
 p {
@@ -60,18 +62,21 @@ header {
     padding: 10px 0;
     height: 80px;
     width: 100%;
-    position: fixed;
+    /* position: fixed; */
     margin-top: 0px;
     left: 0;
     top: 0;
 }
 
+header > a, a {
+    border-radius: var(--border-radius);
+}
+
+
 header > a {
     font-size: 30px;
     margin: 0px 60px;
     font-variation-settings: 'wght' 1000;
-
-    border-radius: var(--border-radius);
 }
 
 main > div:first-of-type {
@@ -86,6 +91,10 @@ h1 {
     font-variation-settings: 'wght' 800;
     font-style: italic;
     text-align: center;
+}
+
+a.content:hover {
+    color: var(--drop-shadow-color);
 }
 
 header > a:hover, #side > a:hover {
@@ -175,6 +184,12 @@ footer > p {
     margin: 25px;
 }
 
+.front div > * {
+    float: left;
+    width: 300px;
+    margin: 10px;
+}
+
 @media (max-width: 900px) {
     #front-anim {
         margin: 0px 25px;
@@ -208,5 +223,13 @@ footer > p {
 @media (min-width: 2200px) {
     #front-anim {
         width: 1540px;
+    }
+}
+
+@media (max-width: 650px) {
+    .front div {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
     }
 }
