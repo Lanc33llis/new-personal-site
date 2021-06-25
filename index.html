@@ -4,46 +4,124 @@
   <head>
     <title>Lance Ellis</title>
     <meta charset="utf-8" />
+    <meta lang="en-US" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-		<script src="js/jquery.min.js"></script>
-		<script src="//cdn.jsdelivr.net/npm/jquery.marquee@1.6.0/jquery.marquee.min.js" type="text/javascript"></script>
   </head>
   <body>
-    <main class="index">
-			<header>
-				<nav>
-					<a href="/work">work</a>
-					<a href="/">home</a>
-					<a href="/about">about</a>
-					<a href="/contact">contact</a>
-				</nav>
-			</header>
-      <div class="index-container left">
-        <h1>Heyyy,</h1>
-        <h2>I'm Lance</h2>
-      </div>
-      <div class="index-container right marquee">
-        <h1>A freelancer</h1>
-        <h1>A student</h1>
-        <h1>A designer</h1>
-        <h1>A gamer</h1>
-        <h1>A researcher</h1>
-        <h1>A self-starter</h1>
-        <h1>A friend</h1>
-        <h1>A programmer</h1>
-        <h1>A techie</h1>
-        <h1>An engineer</h1>
-				<h1>A websurfer</h1>
-        <h1>An astronomer</h1>
-      </div>
-      <footer>
-        <div>
+    <main class="flex down">
+      <img src="images/Breaker.svg" id="front-breaker">
+      <header class="flex center">
+        <h1>
+          <a href="/">LANCE</a>
+        </h1>
+        <div class="grow"></div>
+        <h2>
+          <a href="/">ABOUT</a>
+        </h2>
+        <h2>
+          <a href="/">WORK</a>
+        </h2>
+        <h2>
+          <a href="/">BLOG</a>
+        </h2>
+        <h2>
+          <a href="/">CONTACT</a>
+        </h2>
+        <div id="header-mobile-grow" class="grow"></div>
+        <a href="https://github.com/Lanc33llis" class="header-mobile-icons">
+          <img src="images/github.svg">
+        </a>
+        <a href="https://www.linkedin.com/in/lance-ellis-06732b191/" class="header-mobile-icons">
+          <img src="images/linkedin.svg">
+        </a>
+        <div id="side" class="flex down">
+          <a>ABOUT</a>
+          <a>WORK</a>
+          <a>CONTACT</a>
+          <a>BLOG</a>
+        </div>
+        <img src="images/hamburger.svg" id="menu-icon">
+      </header> 
+      <div class="flex down center splash">
+        <div id="front-anim"></div>
+        <div class="front">
           <h1>
-            LANCE ELLIS
+            GRAPHIC DESIGNER, PROGRAMMER, RESEARCHER, STUDENT
           </h1>
         </div>
+      </div>
+      <div class="front flex down center">
+        <h1>
+          ASTRONOMY LOVER...
+        </h1>
+        <div>
+          <div id="astro-anim" src="images/SVG/stargirl4.svg" class="front-section-image"></div>
+          <aside>
+            <p>
+              I am an astronomy major at the University of Texas @ Austin! I've recently published a paper on simulating Saturn's ring which you can see 
+              <a class="content"  href="https://www.springer.com/series/11769">here</a> soon! I've always had a sensation for exploring the stars since I was young;
+              physics and astronomy are among my passions in life.
+            </p>
+          </aside>
+        </div>
+      </div>
+      <div class="front flex down center">
+        <h1>
+          WEB & GRAPHIC DESIGNER...
+        </h1>
+        <div>
+          <div id="astro-anim" src="images/SVG/stargirl4.svg" class="front-section-image"></div>
+          <aside>
+            <p>
+              I've been playing around with the Adobe Creative Suite since I was in middle school. I've found Photoshop and Premiere fascinating for their
+              powerful toolset for creating just about anything I wanted graphically. Since high school, I've explored graphic design further as a hobby, 
+              more specifically with applications to the web. When I began to learn programming and computer science, graphic design became an increasingly
+              important skill for any projects I wanted to be publicly available. 
+            </p>
+          </aside>
+        </div>
+      </div>
+      <div class="front flex down center">
+        <h1>
+          PROGRAMMER & COMPUTER LOVER...
+        </h1>
+        <div>
+          <div id="astro-anim" src="images/SVG/stargirl4.svg" class="front-section-image"></div>
+          <aside>
+            <p>
+              I am fascinated by computers. It is crazy, at least to me, that we can fit millions of little logic gates in a silicon wafer that then can be used to 
+              simulate the universe, nature, people, the economy, anything in general that exists. Programming was one of the ways I got to use that power
+              beginning in middle school making tic-tac-toe and a calculator. Now, using Scala I've published a paper about a simulation of Photometry 
+              on Saturn's rings. I regularly program from usage to personal projects, like this site or my web apps, to scientific research or mathematical problems.
+            </p>
+          </aside>
+        </div>
+      </div>
+      <div class="front flex down center"">
+        <h1>
+          A LITTLE SHY...
+        </h1>
+        <p>
+          but I'm certainly thinking about the awkwardness
+        </p>
+      </div>
+      <div class="front flex down center"">
+        <h1>
+          I MISS YOU...
+        </h1>
+        <p>
+          but this may be a placeholder
+        </p>
+      </div>
+      <footer>
+        <p>
+          Lance Ellis<br>scdelance@gmail.com
+        </p>
       </footer>
     </main>
   </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.11/lottie.min.js" integrity="sha512-jbTBHn1aXqglu6As1bUWxdPYc9b1uMHtreBM30oW3HbNFDS/eO1n+f98l4qcmw2l7CAdjWSbu3wVjm9SKISOaw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="js/smooth-scrollbar.js"></script>
   <script src="js/index.js"></script>
 </html>
