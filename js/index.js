@@ -1,10 +1,10 @@
 const frontAnim = document.getElementById("front-anim")
-const astroAnim = document.getElementById("astro-anim");
+const astroAnim = document.getElementById("astro-anim")
 
 const dev = true
 
 if (location.protocol !== "https:" && dev == false) {
-  location.protocol = "https:";
+  location.protocol = "https:"
 }
 
 lottie.loadAnimation({
@@ -13,7 +13,7 @@ lottie.loadAnimation({
   loop: true,
   autoplay: true,
   path: "../images/data.json", // the path to the animation json
-});
+})
 
 lottie.loadAnimation({
   container: astroAnim, // the dom element that will contain the animation
@@ -21,9 +21,9 @@ lottie.loadAnimation({
   loop: true,
   autoplay: true,
   path: "../images/stargirl.json", // the path to the animation json
-});
+})
 
-var isMobile = false; //initiate as false
+var isMobile = false //initiate as false
 // device detection
 if (
   /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|ipad|iris|kindle|Android|Silk|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(
@@ -33,103 +33,70 @@ if (
     navigator.userAgent.substr(0, 4)
   )
 ) {
-  isMobile = true;
+  isMobile = true
 }
 
 class ModalPlugin extends Scrollbar.ScrollbarPlugin {
-  static pluginName = "modal";
+  static pluginName = "modal"
 
   static defaultOptions = {
     open: false,
-  };
+  }
 
   transformDelta(delta) {
-    return this.options.open ? { x: 0, y: 0 } : delta;
+    return this.options.open ? { x: 0, y: 0 } : delta
   }
 }
 
-Scrollbar.use(ModalPlugin);
+Scrollbar.use(ModalPlugin)
 
-var Scrollbar = window.Scrollbar;
+var Scrollbar = window.Scrollbar
 
-const fixed = document.querySelector("header");
+const fixed = document.querySelector("header")
 
 if (isMobile) {
-  fixed.style.position = "fixed";
+  fixed.style.position = "fixed"
 } else {
-  fixed.style.position = "sticky";
-	let div = document.querySelector("main > div:first-of-type")
-	div.style.marginTop = "0px"
+  fixed.style.position = "sticky"
+  let div = document.querySelector("main > div:first-of-type")
+  div.style.marginTop = "0px"
 }
 const options = {
   syncCallbacks: true,
-};
+  damping: 0.2,
+}
 
-var scrollbar = Scrollbar.init(document.querySelector("body"), options);
+var scrollbar = Scrollbar.init(document.querySelector("body"), options)
 
 scrollbar.addListener(function (status) {
-  var offset = status.offset;
+  var offset = status.offset
 
-  fixed.style.top = offset.y + "px";
-  fixed.style.left = offset.x + "px";
-});
+  fixed.style.top = offset.y + "px"
+  fixed.style.left = offset.x + "px"
+})
 
-const menuIcon = document.getElementById("menu-icon");
-const side = document.getElementById("side");
-var menuEnabled = false;
+const menuIcon = document.getElementById("menu-icon")
+const side = document.getElementById("side")
+var menuEnabled = false
 menuIcon.addEventListener("click", (ev) => {
   if (menuEnabled) {
-    side.style.left = "-100%";
+    side.style.left = "-100%"
 
-    scrollbar.updatePluginOptions("modal", { open: false });
-    menuEnabled = false;
+    scrollbar.updatePluginOptions("modal", { open: false })
+    menuEnabled = false
   } else {
-    side.style.left = "0%";
-    scrollbar.updatePluginOptions("modal", { open: true });
+    side.style.left = "0%"
+    scrollbar.updatePluginOptions("modal", { open: true })
 
-    menuEnabled = true;
+    menuEnabled = true
   }
-});
-
-//fix breaker
-
-function getCoords(elem) {
-  let box = elem.getBoundingClientRect();
-  let el = scrollbar
-  scrollLeft = el.scrollLeft;
-  scrollTop = el.scrollTop;
-  return {
-		top: scrollTop + box.top,
-		left: scrollLeft + box.left,
-		height: box.height
-  };
-}
-
-const breaker = document.getElementById("front-breaker");
-function setBreaker() {
-  let fronts = document.querySelectorAll(".front");
-  let box1 = getCoords(fronts[0]);
-  let box2 = getCoords(fronts[1]);
-  let x1 = box1.top + box1.height;
-  let x2 = box2.top;
-  let d = (x2 - x1) / 2;
-  let fx = x1 + d - (breaker.getBoundingClientRect().height / 2 - 5);
-  breaker.style.top = fx + "px";
-}
-
-window.onload = () => {
-  setBreaker();
-};
-
-setInterval(() => {
-  setBreaker();
-}, 1000)
+})
 
 window.onresize = () => {
-  setBreaker();
+  setBreaker()
   if (window.innerWidth > 900) {
-    side.style.left = "-100%";
-    scrollbar.updatePluginOptions("modal", { open: false });
-    menuEnabled = false;
+    side.style.left = "-100%"
+    scrollbar.updatePluginOptions("modal", { open: false })
+    menuEnabled = false
   }
-};
+}
