@@ -132,27 +132,38 @@ header h1, header h2 {
     transition: .2s text-shadow ease-out, .2s transform ease-out;
 }
 
+@keyframes hover-slide-off {
+  0% {
+    background-position-x: 0px;
+  }
+  100% {
+    background-position-x: 315px;
+  }
+}
+
 header h2 {
     margin: 0 45px;
     font-variation-settings: 'wght' 300;
+    background-image: url("/images/pink.png");
+    background-position-y: 26px;
     background-repeat: no-repeat;
+    animation-name: hover-slide-off;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards
 }
 
-@keyframes hover-slide {
+@keyframes hover-slide-on {
   0% {
     background-position-x: -315px;
   }
   100% {
     background-position-x: 0px;
   }
-
 }
 
 header h2:hover {
-  animation-duration: 1.5s;
-  animation-name: hover-slide;
-  background-image: url("/images/pink.png");
-  background-position-y: 25px;
+  animation-name: hover-slide-on;
 }
 
 header:last-of-type h2{
@@ -215,6 +226,14 @@ header a {
     height: 100%;
 }
 
+.footer-mobile-icons {
+}
+
+.footer-mobile-icons > img {
+  margin: 25px;
+  height: 50px;
+}
+
 #header-mobile-grow {
     position: absolute;
     height: 100%;
@@ -228,7 +247,7 @@ footer {
 }
 
 footer > p {
-    margin: 25px;
+    margin: 25px 25px 5px 25px;
 }
 
 .front div > * {
@@ -237,7 +256,8 @@ footer > p {
     margin: 10px;
 }
 
-@media (max-width: 900px) {
+
+@media (max-width: 1000px) {
     #front-anim {
         margin: 0px 25px;
         width: auto;

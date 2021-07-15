@@ -1,46 +1,3 @@
-const frontAnim = document.getElementById("front-anim")
-const astroAnim = document.getElementById("astro-anim")
-const gdAnim = document.getElementById("gd-anim")
-const programmerAnim = document.getElementById("programmer-anim")
-
-const dev = true
-
-if (location.protocol !== "https:" && dev == false) {
-  location.protocol = "https:"
-}
-
-lottie.loadAnimation({
-  container: frontAnim, // the dom element that will contain the animation
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "../images/data.json", // the path to the animation json
-})
-
-lottie.loadAnimation({
-  container: astroAnim, // the dom element that will contain the animation
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "../images/stargirl.json", // the path to the animation json
-})
-
-lottie.loadAnimation({
-  container: gdAnim, // the dom element that will contain the animation
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "../images/graphicdesigner.json", // the path to the animation json
-})
-
-lottie.loadAnimation({
-  container: programmerAnim, // the dom element that will contain the animation
-  renderer: "svg",
-  loop: true,
-  autoplay: true,
-  path: "../images/programmer.json", // the path to the animation json
-})
-
 var isMobile = false //initiate as false
 // device detection
 if (
@@ -54,44 +11,15 @@ if (
   isMobile = true
 }
 
-class ModalPlugin extends Scrollbar.ScrollbarPlugin {
-  static pluginName = "modal"
-
-  static defaultOptions = {
-    open: false,
-  }
-
-  transformDelta(delta) {
-    return this.options.open ? { x: 0, y: 0 } : delta
-  }
-}
-
-Scrollbar.use(ModalPlugin)
-
-var Scrollbar = window.Scrollbar
-
 const fixed = document.querySelector("header")
 
 if (isMobile) {
   fixed.style.position = "fixed"
 } else {
   fixed.style.position = "sticky"
-  let div = document.querySelector("main > div:first-of-type")
-  div.style.marginTop = "0px"
+  // let div = document.querySelector("main > div:first-of-type")
+  // div.style.marginTop = "0px"
 }
-const options = {
-  syncCallbacks: true,
-  damping: 0.2,
-}
-
-var scrollbar = Scrollbar.init(document.querySelector("body"), options)
-
-scrollbar.addListener(function (status) {
-  var offset = status.offset
-
-  fixed.style.top = offset.y + "px"
-  fixed.style.left = offset.x + "px"
-})
 
 const menuIcon = document.getElementById("menu-icon")
 const side = document.getElementById("side")
@@ -99,13 +27,9 @@ var menuEnabled = false
 menuIcon.addEventListener("click", (ev) => {
   if (menuEnabled) {
     side.style.left = "-100%"
-
-    scrollbar.updatePluginOptions("modal", { open: false })
     menuEnabled = false
   } else {
     side.style.left = "0%"
-    scrollbar.updatePluginOptions("modal", { open: true })
-
     menuEnabled = true
   }
 })
@@ -113,7 +37,7 @@ menuIcon.addEventListener("click", (ev) => {
 window.onresize = () => {
   if (window.innerWidth > 900) {
     side.style.left = "-100%"
-    scrollbar.updatePluginOptions("modal", { open: false })
+    // scrollbar.updatePluginOptions("modal", { open: false })
     menuEnabled = false
   }
 }

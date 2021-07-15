@@ -1,0 +1,34 @@
+main {
+  height: 100%
+}
+
+div h1 {
+  font-size: 175px;
+  font-weight: 400;
+  margin: 50px;
+}
+
+.contact-splash div {
+  background-image: url(../images/watercolour.png);
+  background-position: center;
+}
+
+div#side {
+  height: 100%;
+  top: 0px;
+  margin-top: 0px;
+}
+
+#side :first-child {
+  height: 100px;
+}
+
+.contact-splash div, aside {
+  float: left;
+  margin: 10px;
+}
+
+aside {
+  max-width: 500px;
+}
+

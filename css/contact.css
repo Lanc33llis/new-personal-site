@@ -1,0 +1,43 @@
+main {
+  height: 100%
+}
+
+div > h1 {
+  font-size: 75px;
+  font-weight: 400;
+  margin: 50px;
+  color: white;
+  text-shadow: 0 0 25px black;
+}
+
+div#side {
+  height: 100%;
+  top: 0px;
+  margin-top: 0px;
+}
+
+#side :first-child {
+  height: 100px;
+}
+
+.contact-splash {
+  width: 100%;
+}
+
+.contact-splash div, aside {
+  float: left;
+  margin: 10px;
+}
+
+.contact-splash div {
+  background-image: url(../images/texture.jpg);
+  background-position: center;
+}
+
+aside a:hover {
+  color: var(--drop-shadow-color)
+}
+
+aside {
+  max-width: 500px;
+}

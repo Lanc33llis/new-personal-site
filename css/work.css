@@ -1,0 +1,48 @@
+main {
+  height: 100%
+}
+
+.work-splash {
+  flex-wrap: wrap;
+}
+
+div#side {
+  height: 100%;
+  top: 0px;
+  margin-top: 0px;
+}
+
+#side :first-child {
+  height: 100px;
+}
+
+.work-splash div {
+  width: 33%;
+  height: 100%;
+  background-position: center;
+  background-size: 100%;
+  display: flex;
+  align-items: center
+}
+
+div h2 {
+  text-align: center;
+  background-color: white;
+}
+
+#first {
+  background-image: url("../images/photometric.png");
+}
+
+#second {
+  background-image: url("../images/mlh.png");
+  /* color: white */
+}
+
+#third {
+  background-image: url("../images/cogle.png");
+}
+
+#fourth {
+  background-image: ;
+}
