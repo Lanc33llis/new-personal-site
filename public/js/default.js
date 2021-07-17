@@ -49,4 +49,12 @@ if (!isMobile) {
     fixed.style.top = offset.y + "px"
     fixed.style.left = offset.x + "px"
   })
+} else {
+  document.ontouchmove = (e) => {
+    if (menuEnabled) {
+      e.preventDefault()
+    } else {
+      return true
+    }
+  }
 }
