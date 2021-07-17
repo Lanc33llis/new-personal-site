@@ -6,16 +6,6 @@ main {
   flex-wrap: wrap;
 }
 
-div#side {
-  height: 100%;
-  top: 0px;
-  margin-top: 0px;
-}
-
-#side :first-child {
-  height: 100px;
-}
-
 .work-splash div {
   width: 33%;
   height: 100%;

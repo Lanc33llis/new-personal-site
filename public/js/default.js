@@ -17,27 +17,36 @@ if (isMobile) {
   fixed.style.position = "fixed"
 } else {
   fixed.style.position = "sticky"
-  // let div = document.querySelector("main > div:first-of-type")
-  // div.style.marginTop = "0px"
 }
 
-const menuIcon = document.getElementById("menu-icon")
-const side = document.getElementById("side")
-var menuEnabled = false
-menuIcon.addEventListener("click", (ev) => {
-  if (menuEnabled) {
-    side.style.left = "-100%"
-    menuEnabled = false
-  } else {
-    side.style.left = "0%"
-    menuEnabled = true
-  }
-})
+class ModalPlugin extends Scrollbar.ScrollbarPlugin {
+  static pluginName = "modal"
 
-window.onresize = () => {
-  if (window.innerWidth > 900) {
-    side.style.left = "-100%"
-    // scrollbar.updatePluginOptions("modal", { open: false })
-    menuEnabled = false
+  static defaultOptions = {
+    open: false,
   }
+
+  transformDelta(delta) {
+    return this.options.open ? { x: 0, y: 0 } : delta
+  }
+}
+
+if (!isMobile) {
+  Scrollbar.use(ModalPlugin)
+
+  var Scrollbar = window.Scrollbar
+
+  const options = {
+    syncCallbacks: true,
+    damping: 0.2,
+  }
+
+  var scrollbar = Scrollbar.init(document.querySelector("body"), options)
+
+  scrollbar.addListener(function (status) {
+    var offset = status.offset
+
+    fixed.style.top = offset.y + "px"
+    fixed.style.left = offset.x + "px"
+  })
 }

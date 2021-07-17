@@ -68,22 +68,11 @@ header {
     top: 0;
 }
 
-header > a, a {
-    border-radius: var(--border-radius);
-}
-
-
-header > a {
-    font-size: 30px;
-    margin: 0px 60px;
-    font-variation-settings: 'wght' 1000;
-}
-
 main > div:first-of-type {
     margin-top: 100px;
 }
 
-header > a, #side > a {
+#side > a {
     transition: .2s box-shadow ease-out, .2s transform ease-out, .2s border ease-out;
 }
 
@@ -97,7 +86,7 @@ a.content:hover {
     color: var(--drop-shadow-color);
 }
 
-header > a:hover, #side > a:hover {
+#side > a:hover {
     box-shadow: var(--drop-shadow-x) var(--drop-shadow-y) 0 0 var(--drop-shadow-color);
     transform: translate(var(--drop-shadow-y), var(--drop-shadow-x));
     border: 1px solid black;
@@ -108,10 +97,6 @@ header > a:hover, #side > a:hover {
 }
 
 div.splash {
-    /* position: relative;
-    top: 0;
-    left: 0; */
-    /* height: 90vh; */
     width: 100vw;
 }
 
@@ -121,14 +106,15 @@ div.front {
     border-bottom: 1px solid gray;
 }
 
-header h1 {
+header a.name {
     margin: 0 60px;
     font-style: normal;
     font-size: 36px;
     font-variation-settings: 'wght' 500;
+    font-weight: 600;
 }
 
-header h1, header h2 {
+header a.name, header a.nav-link {
     transition: .2s text-shadow ease-out, .2s transform ease-out;
 }
 
@@ -141,9 +127,10 @@ header h1, header h2 {
   }
 }
 
-header h2 {
+header a.nav-link {
     margin: 0 45px;
     font-variation-settings: 'wght' 300;
+    font-weight: 500;
     background-image: url("/images/pink.png");
     background-position-y: 26px;
     background-repeat: no-repeat;
@@ -162,11 +149,16 @@ header h2 {
   }
 }
 
-header h2:hover {
+header a.nav-link {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+header a.nav-link:hover {
   animation-name: hover-slide-on;
 }
 
-header:last-of-type h2{
+header:last-of-type a.nav-link{
   margin-right: 60px;
 }
 
@@ -186,16 +178,25 @@ header a {
     cursor: pointer
 }
 
+.scroll-content {
+  height: 100%
+}
+
 #side {
+    z-index: -1;
     transition: .3s left ease-out;
     position: absolute;
     top: 100px;
     left: -100%;
     width: 100vw;
-    height: 100vh;
+    height: calc(100vh - 100px);
     background-color: white;
     visibility: hidden;
 }
+
+/* #side :first-child {
+  margin-top: 100px;
+} */
 
 #side > a {
     font-size: 30px;
@@ -231,7 +232,7 @@ header a {
 
 .footer-mobile-icons > img {
   margin: 25px;
-  height: 50px;
+  height: 45px;
 }
 
 #header-mobile-grow {
@@ -266,20 +267,15 @@ footer > p {
         justify-content: flex-start !important;
     }
 
-    header h1 {
+    header a.name {
         margin: 0 30px;
     }
 
-    header h2 {
+    header a.nav-link {
         position: absolute;
         visibility: hidden;
     }
 
-    header > a:not(a.header-mobile-icons) {
-        margin: 0 30px;
-        position: absolute;
-        visibility: hidden;
-    }
     #menu-icon {
         margin: 0 30px 0 25px;
         position: relative;

@@ -8,22 +8,12 @@ div h1 {
   margin: 50px;
 }
 
-.contact-splash div {
+.about-splash > div > div {
   background-image: url(../images/watercolour.png);
   background-position: center;
 }
 
-div#side {
-  height: 100%;
-  top: 0px;
-  margin-top: 0px;
-}
-
-#side :first-child {
-  height: 100px;
-}
-
-.contact-splash div, aside {
+.about-splash div, aside {
   float: left;
   margin: 10px;
 }
