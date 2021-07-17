@@ -171,11 +171,15 @@ header a {
     margin: 0 60px;
     position: absolute;
     width: 35px;
+    height: 35px;
+    background-image: url("../images/hamburger.svg");
     visibility: hidden;
     top: 0px;
     right: 0px;
     z-index: 4;
-    cursor: pointer
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
 }
 
 .scroll-content {
