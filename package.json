@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  },
+  "name": "personal-site",
+  "version": "1.0.0",
+  "description": "personal sit",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lanc33llis/new-personal-site.git"
+  },
+  "author": "Lance",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lanc33llis/new-personal-site/issues"
+  },
+  "homepage": "https://github.com/Lanc33llis/new-personal-site#readme"
+}
