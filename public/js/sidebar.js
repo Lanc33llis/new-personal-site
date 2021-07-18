@@ -11,28 +11,21 @@ if (
   isMobile = true
 }
 
-if (isMobile) {
-  document.ontouchmove = (e) => {
-    if (menuEnabled) {
-      e.preventDefault()
-    } else {
-      return true
-    }
-  }
-}
-
 const menuIcon = document.getElementById("menu-icon")
 const side = document.getElementById("side")
+const body = document.body
 var menuEnabled = false
 menuIcon.addEventListener("click", (ev) => {
   if (menuEnabled) {
     side.style.left = "-100%"
     if (!isMobile) scrollbar.updatePluginOptions("modal", { open: false })
+    else body.style.touchAction = "auto"
 
     menuEnabled = false
   } else {
     side.style.left = "0%"
     if (!isMobile) scrollbar.updatePluginOptions("modal", { open: true })
+    else body.style.touchAction = "none"
 
     menuEnabled = true
   }
