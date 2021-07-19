@@ -13,11 +13,11 @@ if (
 
 const fixed = document.querySelector("header")
 
-if (isMobile) {
-  fixed.style.position = "fixed"
-} else {
-  fixed.style.position = "sticky"
-}
+// if (isMobile) {
+//   fixed.style.position = "fixed"
+// } else {
+//   fixed.style.position = "sticky"
+// }
 
 class ModalPlugin extends Scrollbar.ScrollbarPlugin {
   static pluginName = "modal"

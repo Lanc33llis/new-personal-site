@@ -2,23 +2,38 @@ main {
   height: 100%
 }
 
-div h1 {
-  font-size: 175px;
-  font-weight: 400;
-  margin: 50px;
+.about-splash {
+  width: 80%;
+  padding: 25px;
 }
 
-.about-splash > div > div {
-  background-image: url(../images/watercolour.png);
+.title-text {
+  font-size: 76px;
+  background-image: url("../images/joel-filipe.jpg");
+  -webkit-background-clip: text;
+  background-size: 200px;
   background-position: center;
+  background-position-x: -20px;
+  color: transparent;
+  text-align: start;
+  font-style: normal;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--theme-pink);
+  font-weight: 400;
 }
 
-.about-splash div, aside {
-  float: left;
-  margin: 10px;
+@media (max-width: 1000px) {
+  .about-splash {
+    padding: 0px;
+    width: 100%
+  }
+  .about-splash > * {
+    margin: .67em 30px;
+  }
 }
 
-aside {
-  max-width: 500px;
+@media (max-width: 500px) {
+  .title-text {
+    text-align: center;
+  }
 }
-

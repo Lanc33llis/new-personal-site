@@ -2,32 +2,68 @@ main {
   height: 100%
 }
 
-div > h1 {
-  font-size: 75px;
-  font-weight: 400;
-  margin: 50px;
-  color: white;
-  text-shadow: 0 0 25px black;
-}
-
 .contact-splash {
-  width: 100%;
+  width: 80%;
+  padding: 25px;
 }
 
-.contact-splash div, aside {
-  float: left;
-  margin: 10px;
+h2 {
+  align-self: center
 }
 
-.contact-splash div {
-  background-image: url(../images/texture.jpg);
+.carrier img {
+  height: 75px;
+}
+
+.title-text {
+  font-size: 76px;
+  background-image: url("../images/alexander-andrews.jpg");
+  -webkit-background-clip: text;
+  background-size: 200px;
   background-position: center;
+  background-position-x: -20px;
+  background-position-y: 100px;
+  color: transparent;
+  text-align: start;
+  font-style: normal;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--theme-pink);
+  font-weight: 400;
 }
 
-aside a:hover {
-  color: var(--drop-shadow-color)
+input, textarea {
+  font-size: 18px;
+  border: solid 1px var(--theme-blue);
+  border-radius: var(--border-radius);
+  outline: none;
+  margin: 15px;
+  padding: 5px;
 }
 
-aside {
-  max-width: 500px;
+#text-field {
+  height: 100px;
+  overflow-y: auto;
+  resize: none;
+}
+
+#contact-submit {
+  width: 150px;
+  align-self: center;
+}
+
+@media (max-width: 1000px) {
+  .contact-splash {
+    -splash {
+    padding: 0px;
+    width: 100%
+  }
+  .contact-splash > * {
+    margin: .67em 30px;
+  }
+}
+
+@media (max-width: 500px) {
+  .title-text {
+    text-align: center;
+  }
 }
