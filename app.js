@@ -12,6 +12,10 @@ app.get("/", (req, res, next) => {
   res.sendFile(path.join(__dirname, "public/index.html"))
 })
 
+app.get("/status", (req, res, next) => {
+  res.sendStatus(200)
+})
+
 app.listen(port, host, () => {
   console.log("Server hosted at http://localhost:" + port)
 })
