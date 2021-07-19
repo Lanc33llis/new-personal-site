@@ -63,7 +63,7 @@ header {
     padding: 10px 0;
     min-height: 80px;
     width: 100%;
-    /* position: fixed; */
+    position: sticky;
     margin-top: 0px;
     left: 0;
     top: 0;
