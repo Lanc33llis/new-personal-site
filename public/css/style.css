@@ -31,6 +31,7 @@
 html {
     /* scroll-behavior: smooth; */
     overflow-x: hidden;
+    min-height: 100%;
 }
 
 body, html {
@@ -39,6 +40,7 @@ body, html {
 }
 
 main {
+    height: auto;
     align-items: center;
 }
 
