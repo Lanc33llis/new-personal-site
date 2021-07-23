@@ -16,6 +16,8 @@ app.get("/status", (req, res, next) => {
   res.sendStatus(200)
 })
 
+app.post("/contactme!", (req, res, next) => {})
+
 app.listen(port, host, () => {
   console.log("Server hosted at http://localhost:" + port)
 })
