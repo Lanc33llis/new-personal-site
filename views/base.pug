@@ -1,0 +1,15 @@
+doctype html
+html(lang="en-us")
+  head
+    title=title
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' type='text/css' href='css/style.css')
+    link(rel='stylesheet' type='text/css' href="css/" + page + ".css")
+  body
+    main.flex.down
+      include components/header
+      block content
+      include components/footer
+  script(src='js/smooth-scrollbar.js')
+  script(src='js/default.js')

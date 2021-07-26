@@ -1,0 +1,14 @@
+extends base
+
+block content
+  .contact-splash.flex.grow.down
+    h1.title-text Want to get in contact?
+    form.contact-form.flex.down(action='/contactme!' method='post')
+      input#name-field(type='text' placeholder='Name:' name='name')
+      input#email-field(type='text' placeholder='Email:' name='responseEmail')
+      textarea#text-field(type='text' placeholder='Text:' name='content')
+      input#contact-submit(type='submit' placeholder='Send')
+    h2 You can also reach me at these platforms
+    .carrier.flex.center
+      a(href='/discord.txt')
+        img(src='images/SVG/Discord-Logo+Wordmark-Black.svg')

@@ -13,10 +13,24 @@ const emailDomainUser = process.env.EMAIL_DOMAIN_USER
 
 app.use(express.urlencoded())
 app.use(express.json())
-app.use(express.static("public", { index: false, extensions: ["html", "txt"] }))
+app.use(express.static("public"))
+app.set("views", path.join(__dirname, "views"))
+app.set("view engine", "pug")
 
 app.get("/", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "public/index.html"))
+  res.render("index", { title: "Lance Ellis - home", page: "index" })
+})
+
+app.get("/about", (req, res, next) => {
+  res.render("about", { title: "Lance Ellis - about", page: "about" })
+})
+
+app.get("/contact", (req, res, next) => {
+  res.render("contact", { title: "Lance Ellis - contact", page: "contact" })
+})
+
+app.get("/wip", (req, res, next) => {
+  res.render("wip", { title: "Lance Ellis - wip", page: "wip" })
 })
 
 app.get("/status", (req, res, next) => {

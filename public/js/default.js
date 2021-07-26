@@ -50,3 +50,32 @@ if (!isMobile) {
     fixed.style.left = offset.x + "px"
   })
 }
+
+const menuIcon = document.getElementById("menu-icon")
+const side = document.getElementById("side")
+const body = document.body
+var menuEnabled = false
+menuIcon.addEventListener("click", (ev) => {
+  if (menuEnabled) {
+    side.style.left = "-100%"
+    if (!isMobile) scrollbar.updatePluginOptions("modal", { open: false })
+    else body.style.touchAction = "auto"
+
+    menuEnabled = false
+  } else {
+    side.style.left = "0%"
+    if (!isMobile) scrollbar.updatePluginOptions("modal", { open: true })
+    else body.style.touchAction = "none"
+
+    menuEnabled = true
+  }
+})
+
+window.onresize = () => {
+  if (window.innerWidth > 900) {
+    side.style.left = "-100%"
+    if (!isMobile) scrollbar.updatePluginOptions("modal", { open: false })
+
+    menuEnabled = false
+  }
+}
