@@ -1,5 +1,65 @@
 extends base
 
 block content 
-  .
-    
+  link(rel="stylesheet", href="css/splide-core.min.css")
+  link(rel="stylesheet", href="css/splide-sea-green.min.css")
+  .work-splash.flex.down
+    h1 thoughtful ideas with careful design 
+    .work-quick-links.flex.center
+      a(href="#graphic-design-portfolio")  graphic design portfolio
+      a(href="#timeline-beginning") work timeline
+  .graphic-design-container(id="graphic-design-portfolio")
+    #gd-fade-bg-in
+    #gd-fade-in
+    h2 Graphic Design Portfolio
+    .splide 
+      .splide__track 
+        .splide__list
+          .splide__slide
+            .splide__slide__container
+              img(src="images/send2space.PNG", alt="", srcset="")
+            h3 LEE Send2Space
+            p A website for fundraising and outreach created for a co-founded organization
+          .splide__slide
+            .splide__slide__container
+              img(src="images/frenchfried.PNG", alt="", srcset="")
+            h3 French Fried Online
+            p A quick little website made during a hackathon
+          .splide__slide
+            .splide__slide__container
+              img(src="images/cogle.PNG", alt="", srcset="")
+            h3 Cogle Web App
+            p Currently developing a free web app for teachers
+          .splide__slide
+            .splide__slide__container
+              img(src="images/free-lance.PNG", alt="", srcset="")
+            h3 Quick Sketch #1
+            p A quick sketch developed for personal usage
+    .carnival-control
+    #gd-fade-out
+    #gd-fade-bg-out
+  .work-container(id="timeline-beginning")
+    .title.flex.center
+      h2 2021
+    .work-content
+      .work-item
+        h3 Major League Hacking
+        p Production Engineering Fellow
+      .work-item
+        h3 Astronomy & Computer Science Research Intern
+        p Published paper first paper on the photometric rendering of dust and freed Regolith in ring simulations.
+      .work-item
+        h3 Admitted to the University of Texas
+        p Undergrad in Astronomy
+  .work-container 
+    .title.flex.center 
+      h2 2020
+    .work-content
+      .work-item
+        h3 Send2Space Charter
+        p New Send2Space Charter at San Antonio 
+      .work-item 
+        h3 Def Hacks Organizer
+        p Graphic designer for Def Hacks Hackathon 
+  script(src="js/splide.min.js") 
+  script(src="js/work.js") 

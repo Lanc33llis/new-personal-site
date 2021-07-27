@@ -29,6 +29,10 @@ app.get("/contact", (req, res, next) => {
   res.render("contact", { title: "Lance Ellis - contact", page: "contact" })
 })
 
+app.get("/work", (req, res, next) => {
+  res.render("work", { title: "Lance Ellis - work", page: "work" })
+})
+
 app.get("/wip", (req, res, next) => {
   res.render("wip", { title: "Lance Ellis - wip", page: "wip" })
 })

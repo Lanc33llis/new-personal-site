@@ -19,6 +19,68 @@ const fixed = document.querySelector("header")
 //   fixed.style.position = "sticky"
 // }
 
+class AnchorPlugin extends Scrollbar.ScrollbarPlugin {
+  static pluginName = "anchor"
+
+  onHashChange = () => {
+    this.handleHash(location.hash)
+  }
+
+  onClick = (event) => {
+    const { target } = event
+
+    if (target.tagName !== "A") {
+      return
+    }
+
+    const hash = target.getAttribute("href")
+
+    if (!hash || hash.charAt(0) !== "#") {
+      return
+    }
+
+    this.handleHash(hash)
+  }
+
+  handleHash = (hash) => {
+    console.log("hash:", hash)
+
+    if (!hash) {
+      return
+    }
+
+    if (hash === "#top") {
+      scrollbar.setMomentum(0, -scrollbar.scrollTop)
+    } else {
+      console.log("scrollTop:", scrollbar.containerEl.scrollTop)
+
+      scrollbar.scrollIntoView(document.querySelector(hash), {
+        offsetTop: -scrollbar.containerEl.scrollTop,
+      })
+    }
+  }
+
+  onInit() {
+    this.handleHash(location.hash)
+
+    window.addEventListener("hashchange", this.onHashChange)
+
+    this.scrollbar.contentEl.addEventListener("click", this.onClick)
+  }
+
+  onDestory() {
+    window.removeEventListener("hashchange", this.onHashChange)
+
+    this.scrollbar.contentEl.removeEventListener("click", this.onClick)
+  }
+}
+
+class stopOnEvenPlugin extends Scrollbar.ScrollbarPlugin {
+  static pluginName = "stopOnEven"
+}
+
+Scrollbar.use(AnchorPlugin)
+
 class ModalPlugin extends Scrollbar.ScrollbarPlugin {
   static pluginName = "modal"
 
@@ -39,6 +101,7 @@ if (!isMobile) {
   const options = {
     syncCallbacks: true,
     damping: 0.2,
+    renderByPixels: true,
   }
 
   var scrollbar = Scrollbar.init(document.querySelector("body"), options)
