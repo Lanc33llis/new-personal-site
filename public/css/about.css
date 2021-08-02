@@ -18,7 +18,7 @@ main {
   text-align: start;
   font-style: normal;
   padding-bottom: 5px;
-  border-bottom: 2px solid var(--theme-pink);
+  border-bottom: 2px solid black;
   font-weight: 400;
 }
 

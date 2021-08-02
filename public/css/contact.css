@@ -27,13 +27,13 @@ h2 {
   text-align: start;
   font-style: normal;
   padding-bottom: 5px;
-  border-bottom: 2px solid var(--theme-pink);
+  border-bottom: 2px solid black;
   font-weight: 400;
 }
 
 input, textarea {
   font-size: 18px;
-  border: solid 1px var(--theme-blue);
+  border: solid 1px black;
   border-radius: var(--border-radius);
   outline: none;
   margin: 15px;
