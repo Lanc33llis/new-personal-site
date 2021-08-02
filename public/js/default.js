@@ -134,7 +134,9 @@ menuIcon.addEventListener("click", (ev) => {
   }
 })
 
+baseOnSize = window.onresize
 window.onresize = () => {
+  baseOnSize()
   if (window.innerWidth > 900) {
     side.style.left = "-100%"
     if (!isMobile) scrollbar.updatePluginOptions("modal", { open: false })
