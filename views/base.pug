@@ -11,5 +11,20 @@ html(lang="en-us")
       include components/header
       block content
       include components/footer
+  script(src='https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js')
+  script(src='https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js')
+  script.
+    var firebaseConfig = {
+    apiKey: "AIzaSyC-ZoK61rN5S9T27JxyN2zz0nLxUCFYGJo",
+    authDomain: "personal-site-e30d0.firebaseapp.com",
+    projectId: "personal-site-e30d0",
+    storageBucket: "personal-site-e30d0.appspot.com",
+    messagingSenderId: "640149370682",
+    appId: "1:640149370682:web:590c36fbbf92272ba80203",
+    measurementId: "G-8NJY95DYR4"
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
   script(src='js/smooth-scrollbar.js')
   script(src='js/default.js')
