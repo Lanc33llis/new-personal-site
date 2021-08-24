@@ -2,6 +2,9 @@ const express = require("express")
 const app = express()
 const path = require("path")
 const nodemailer = require("nodemailer")
+const fetch = require('node-fetch')
+const fs = require('fs');
+var session = require('express-session')
 
 require("dotenv").config()
 const port = process.env.PORT
@@ -11,7 +14,15 @@ const emailUser = process.env.EMAIL_USER
 const emailPass = process.env.EMAIL_PASS
 const emailDomainUser = process.env.EMAIL_DOMAIN_USER
 
-app.use(express.urlencoded())
+app.set('trust proxy', 1) // trust first proxy
+app.use(session({
+  secret: process.env.BLOG_SECRET,
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}))
+
+app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 app.use(express.static("public"))
 app.set("views", path.join(__dirname, "views"))
@@ -31,6 +42,51 @@ app.get("/contact", (req, res, next) => {
 
 app.get("/work", (req, res, next) => {
   res.render("work", { title: "Lance Ellis - work", page: "work" })
+})
+
+app.get("/admin", (req, res, next) => {
+  res.render("admin", { title: "Lance Ellis - admin", page: "admin" })
+})
+
+app.post("/admin", (req, res ,next) => {
+  if (req.body.blog_pass && req.body.blog_pass == process.env.BLOG_PASS) {
+    req.session.admin = true
+    res.redirect("/blogeditor")
+  } else {
+    res.status("401").send()
+  }
+})
+
+app.get("/blogeditor", (req, res, next) => {
+  if (req.session.admin === true) {
+    res.render("blogeditor", {title: "Lance Ellis - blog editor", page: "blogeditor"})
+  } else {
+    res.status("401").send()
+  }
+})
+
+var blogs = JSON.parse(fs.readFileSync("blogs.json"))
+app.post("/blogs", (req, res, next) => {
+  if (req.body.title && req.body.body) {
+    fs.readFile("blogs.json", (err, data) => {
+      if (err) return console.error("Could not open blog.json")
+      let json = JSON.parse(data)
+      const fullDate = `${new Date().toLocaleString("en-US", {timeZone: "America/Chicago"})} CST`
+      let blog = {
+        title: req.body.title,
+        body: req.body.body,
+        date: fullDate
+      }
+      json.blogs.push(blog)
+      fs.writeFileSync("blogs.json", JSON.stringify(json))
+      blogs = json
+      res.redirect("/blog")
+    })
+  }
+})
+
+app.get("/blog", (req, res, next) => {
+  res.render("blog", {title: "Lance Ellis - blog", page: "blog", blogs: blogs.blogs})
 })
 
 app.get("/wip", (req, res, next) => {

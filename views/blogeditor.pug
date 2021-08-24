@@ -1,0 +1,8 @@
+extends base
+
+block content
+    h1 Blog Editor
+    form(action="/blogs" method="post") 
+        input(type="text" placeholder="Title" name="title")
+        textarea(type="text" placeholder="Body" name="body")
+        input(type="submit")

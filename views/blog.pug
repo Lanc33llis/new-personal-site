@@ -1,0 +1,9 @@
+extends base
+
+block content
+  h1 The Blog
+  each blog in blogs 
+    div
+      h2=blog.title
+      h3=blog.date
+      p=blog.body
