@@ -1,0 +1,22 @@
+main {
+    height: 100vh;
+}
+
+main > div {
+    flex: 1;
+    display: grid;
+    place-items: center;
+}
+
+
+form {
+    display: grid;
+    place-items: center;
+}
+
+input:first-child {
+    margin: 30px;
+    -webkit-text-security: disc;
+    -moz-text-security: disc;
+    text-security: disc;
+}

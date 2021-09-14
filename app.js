@@ -67,21 +67,33 @@ app.get("/blogeditor", (req, res, next) => {
 
 var blogs = JSON.parse(fs.readFileSync("blogs.json"))
 app.post("/blogs", (req, res, next) => {
-  if (req.body.title && req.body.body) {
-    fs.readFile("blogs.json", (err, data) => {
-      if (err) return console.error("Could not open blog.json")
-      let json = JSON.parse(data)
-      const fullDate = `${new Date().toLocaleString("en-US", {timeZone: "America/Chicago"})} CST`
-      let blog = {
-        title: req.body.title,
-        body: req.body.body,
-        date: fullDate
-      }
-      json.blogs.push(blog)
-      fs.writeFileSync("blogs.json", JSON.stringify(json))
-      blogs = json
-      res.redirect("/blog")
-    })
+  if (req.session.admin === true) {
+    if (req.body.title && req.body.body && req.body.timeZone && req.body.location) {
+      fs.readFile("blogs.json", (err, data) => {
+        if (err) return console.error("Could not open blog.json")
+        let json = JSON.parse(data)
+        const fullDate = `${new Date().toLocaleString("en-US", {timeZone: req.body.timeZone, timeZoneName: "short"})}`
+        let blog = {
+          title: req.body.title,
+          body: req.body.body,
+          date: fullDate,
+          location: req.body.location
+        }
+        json.blogs.push(blog)
+        fs.writeFileSync("blogs.json", JSON.stringify(json))
+        blogs = json
+        res.redirect("/blog")
+      })
+    } else {
+      let error = ""
+      if (!req.body.title) error = "No title"
+      else if (!req.body.body) error = "No body"
+      else if (!req.body.timeZone) error = "No time zone"
+      else if (!req.body.location) error = "No location"
+      res.send(`Malformed data\n${error}`)
+    }
+  } else {
+    res.status("401").send()
   }
 })
 

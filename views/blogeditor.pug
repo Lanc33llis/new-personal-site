@@ -5,4 +5,8 @@ block content
     form(action="/blogs" method="post") 
         input(type="text" placeholder="Title" name="title")
         textarea(type="text" placeholder="Body" name="body")
+        label(for="timezone") JS Timezone
+        input(type="text" value="America/Chicago" name="timeZone")
+        label(for="location") Location
+        input(type="text" value="Austin, TX, USA" name="location")
         input(type="submit")
