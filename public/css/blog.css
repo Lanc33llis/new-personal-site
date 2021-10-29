@@ -21,6 +21,7 @@ h3 {
     margin: 0;
 }
 
-h3, p {
+h3, p, pre {
+    white-space: pre-wrap;
     font-size: 24px;
 }

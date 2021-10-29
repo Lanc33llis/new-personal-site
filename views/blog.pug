@@ -8,4 +8,6 @@ block content
         h2=blog.title
         h3=blog.date
         h3=blog.location
-        p=blog.body
+        pre #{blog.body}
+        //- each line in blog.body.split("\n")
+        //-   p=line

@@ -79,7 +79,7 @@ app.post("/blogs", (req, res, next) => {
           date: fullDate,
           location: req.body.location
         }
-        json.blogs.push(blog)
+        json.blogs.unshift(blog)
         fs.writeFileSync("blogs.json", JSON.stringify(json))
         blogs = json
         res.redirect("/blog")

@@ -44,7 +44,7 @@ main {
     align-items: center;
 }
 
-p, a, h1, h2, h3, input, textarea {
+p, a, h1, h2, h3, input, textarea, pre {
     font-family: Inter, Arial, Helvetica, sans-serif;
     transition: .15s box-shadow ease-out;
 }
